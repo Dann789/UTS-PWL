@@ -92,6 +92,13 @@ class BarangController extends Controller
          // Redirect jika bukan request Ajax
          return redirect('/');
      }
+
+     public function show_ajax(string $id) {
+        $barang = BarangModel::find($id);
+        $kategori = KategoriModel::select('kategori_id', 'kategori_nama')->get();
+        return view('barang.detail_ajax', ['barang' => $barang, 'kategori' => $kategori]);
+     }
+
     public function edit_ajax($id)
     {
         $barang = BarangModel::find($id);

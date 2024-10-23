@@ -186,6 +186,11 @@ class SupplierController extends Controller
          return redirect('/');
      }
 
+     public function show_ajax(string $id) {
+         $supplier = SupplierModel::find($id);
+         return view('supplier.detail_ajax', ['supplier' => $supplier]);
+     }
+
     public function edit_ajax(string $id) {
         $supplier = SupplierModel::find($id);
 

@@ -283,7 +283,7 @@ class TransaksiController extends Controller
             ->orderBy('penjualan_kode')
             ->get();
         // use Barryvdh\DomPDF\Facade\Pdf;
-        $pdf = Pdf::loadView('penjualan.export_pdf', ['penjualan' => $penjualan]);
+        $pdf = Pdf::loadView('transaksi.export_pdf', ['penjualan' => $penjualan]);
         $pdf->setPaper('a4', 'portrait'); // set ukuran kertas dan orientasi
         $pdf->setOption("isRemoteEnabled", true); // set true jika ada gambar dari url $pdf->render();
         return $pdf->stream('Data penjualan' . date('Y-m-d H:i:s') . '.pdf');

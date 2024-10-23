@@ -19,7 +19,7 @@
     </style>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-9">
+            <div class="col-md-4">
                 <div class="card card-primary card-outline">
                     <div class="card-body box-profile">
                         <div class="profile-image-container">
@@ -46,27 +46,25 @@
                             <form action="{{ route('upload.foto') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <input type="file" id="upload_foto" name="foto" accept="image/*">
-                                <button type="submit" class="btn btn-primary btn-sm mt-2 ubah-foto-btn">Ubah Foto</button>
+                                <button type="submit" class="btn btn-primary mt-2 ubah-foto-btn">Ubah Foto</button>
                                 <br>
                             </form>
                         </div>
-                        <h3 class="profile-username text-center">{{ auth()->user()->nama }}</h3>
+                        <h3 class="profile-username text-center mt-2">{{ auth()->user()->nama }}</h3>
                         <p class="text-muted text-center"> {{ auth()->user()->level->level_nama }} </p>
                         <ul class="list-group list-group-unbordered mb-3">
                             <li class="list-group-item">
-                                <b>Username</b> <a class="float-right"
-                                    style="pointer-events: none; color:black">{{ auth()->user()->username }}</a>
+                                <b>Username</b> <a class="float-right" style="pointer-events: none; color:black">{{ auth()->user()->username }}</a>
                             </li>
                             <li class="list-group-item">
-                                <b>Nama</b> <a class="float-right"
-                                    style="pointer-events: none; color:black">{{ auth()->user()->nama }}</a>
+                                <b>Nama</b> <a class="float-right" style="pointer-events: none; color:black">{{ auth()->user()->nama }}</a>
                             </li>
                             <li class="list-group-item">
-                                <b>Tingkat Level</b> <a class="float-right"
-                                    style="pointer-events: none; color:black">{{ auth()->user()->level->level_nama }}</a>
+                                <b>Tingkat Level</b> <a class="float-right" style="pointer-events: none; color:black">{{ auth()->user()->level->level_nama }}</a>
                             </li>
                         </ul>
-                        <a href="{{ url('/') }}" class="btn btn-primary btn-block"><b>Kembali</b></a>
+                        <button onclick="modalAction('{{ url('/profile/{$id}/edit') }}')" class="btn btn-secondary btn-block">Edit Profile</button>
+                        <button onclick="window.history.back()" class="btn btn-primary btn-block">Kembali</button>
                     </div>
                     <!-- /.card-body -->
                 </div>

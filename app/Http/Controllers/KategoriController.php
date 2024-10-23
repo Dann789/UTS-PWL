@@ -200,6 +200,12 @@ class KategoriController extends Controller
         return redirect('/');
     }
 
+
+    public function show_ajax(string $id) {
+        $kategori = KategoriModel::find($id);
+        return view('kategori.detail_ajax', ['kategori' => $kategori]);
+    }
+
    public function edit_ajax(string $id) {
        $kategori = KategoriModel::where('kategori_id', $id)->first();
        return view('kategori.edit_ajax', ['kategori' => $kategori]);
